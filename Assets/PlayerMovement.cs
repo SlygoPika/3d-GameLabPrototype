@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public float rotateSpeed;
     public bool canMoveInAir;
+    public bool canDash;
     public float dashDistance;
     public float dashSpeed;
 
@@ -16,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool doubleJump;
     float angleY;
-    float rotate = 0;
     float lateralMove;
     float forwardMove;
 
@@ -45,7 +45,9 @@ public class PlayerMovement : MonoBehaviour
             Mathf.Cos(angleY / 360 * 2 * Mathf.PI)
         );
 
-        if (Input.GetMouseButtonDown(0))
+        
+
+        if (Input.GetMouseButtonDown(0) && canDash)
         {
             dashing = true;
             initialPos = this.transform.position;
@@ -66,8 +68,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        rotate += Input.GetAxis("Mouse X") * rotateSpeed;
-
         if (this.transform.position.y < -5)
         {
             FindObjectOfType<GameManager>().GameOver();
@@ -83,14 +83,6 @@ public class PlayerMovement : MonoBehaviour
             Dash();
             return;
         }
-        
-        this.transform.eulerAngles = new Vector3(
-            0,
-            this.transform.rotation.eulerAngles.y + rotate,
-            0
-        );
-
-        rotate = 0;
 
         if (canMoveInAir || isGrounded)
         {
