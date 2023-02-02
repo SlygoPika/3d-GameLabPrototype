@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 723724402}
   - component: {fileID: 723724404}
   - component: {fileID: 723724403}
+  - component: {fileID: 723724405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -430,6 +431,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 5
   shootingFOV: 60
+--- !u!114 &723724405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723724396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7c2e0da21c84121954524e3fae4670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootRadius: 5
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +747,10 @@ PrefabInstance:
     - target: {fileID: 6443365627491522016, guid: a7a16fee6e3984ef296f41a532709716, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443365627491522016, guid: a7a16fee6e3984ef296f41a532709716, type: 3}
+      propertyPath: extraRadius
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6443365627491522017, guid: a7a16fee6e3984ef296f41a532709716, type: 3}
       propertyPath: m_RootOrder

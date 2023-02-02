@@ -44,8 +44,6 @@ public class Attractor : MonoBehaviour
         Vector3 direction = rb.position - otherRb.position;
         float radius = direction.magnitude;
 
-        Debug.Log(radius);
-
         float forceMagnitude = G * rb.mass * otherRb.mass / Mathf.Pow(radius + extraRadius, 2);
         Vector3 force = forceMagnitude * direction.normalized;
 

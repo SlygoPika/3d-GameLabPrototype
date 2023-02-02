@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ShootSingularity : MonoBehaviour
 {
-
-    public float FOVangle;
     public float shootRadius;
 
     Orientation orientation;
-
+    Vector2 crossheir;
+    Vector2 center;
 
     private void Start()
     {
         orientation = GetComponent<Orientation>();
+        center = new Vector2(Screen.width, Screen.height);
     }
 
     // Update is called once per frame
@@ -26,6 +26,15 @@ public class ShootSingularity : MonoBehaviour
                 Debug.Log(mousePos.x);
                 Debug.Log(mousePos.y);
             }
+        }
+        if (orientation.isInShootingZone())
+        {
+            crossheir = Input.mousePosition;
+
+            Debug.Log(crossheir);
+        } else
+        {
+            
         }
 
     }

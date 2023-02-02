@@ -57,7 +57,7 @@ public class Orientation : MonoBehaviour
         rotateX = 0;
     }
 
-    private bool isInShootingZone()
+    public bool isInShootingZone()
     {
         Vector3 mousePos = Input.mousePosition;
         return ((mousePos.x < rightBorder) &&
