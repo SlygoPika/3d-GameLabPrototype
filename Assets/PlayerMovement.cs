@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float gravityMultiplier;
     public float wasdSpeed;
     public float jumpHeight;
     public float rotateSpeed;
@@ -27,8 +28,11 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.gravity = new Vector3(0.0f, Physics.gravity.y * gravityMultiplier, 0.0f);
         myRigidbody = this.GetComponent<Rigidbody>();
         gravity = Physics.gravity.y;
+
+        
     }
 
     void Update()

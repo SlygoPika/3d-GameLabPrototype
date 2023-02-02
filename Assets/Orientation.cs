@@ -32,14 +32,6 @@ public class Orientation : MonoBehaviour
         rotateY += Input.GetAxis("Mouse X") * rotateSpeed;
         rotateX += Input.GetAxis("Mouse Y") * rotateSpeed;
         mousePos = Input.mousePosition;
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            {
-                Debug.Log(mousePos.x);
-                Debug.Log(mousePos.y);
-            }
-        }
     }
 
     private void FixedUpdate()
