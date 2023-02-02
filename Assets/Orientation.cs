@@ -14,6 +14,7 @@ public class Orientation : MonoBehaviour
 
     private float leftBorder;
     private float rightBorder;
+    private Vector2 mousePos;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +31,10 @@ public class Orientation : MonoBehaviour
     {
         rotateY += Input.GetAxis("Mouse X") * rotateSpeed;
         rotateX += Input.GetAxis("Mouse Y") * rotateSpeed;
+        mousePos = Input.mousePosition;
+
         if (Input.GetButtonDown("Fire1"))
         {
-            Vector3 mousePos = Input.mousePosition;
             {
                 Debug.Log(mousePos.x);
                 Debug.Log(mousePos.y);
@@ -59,14 +61,12 @@ public class Orientation : MonoBehaviour
 
     public bool isInShootingZone()
     {
-        Vector3 mousePos = Input.mousePosition;
         return ((mousePos.x < rightBorder) &&
             (mousePos.x > leftBorder));
     }
 
     private bool isTurning()
     {
-        Vector3 mousePos = Input.mousePosition;
         return (mousePos.x > rightBorder && rotateY > 0) ||
             (mousePos.x < leftBorder && rotateY < 0);
     }
@@ -81,4 +81,13 @@ public class Orientation : MonoBehaviour
         return leftBorder;
     }
 
+    public bool isOutOfLeftBorder()
+    {
+        return mousePos.x < leftBorder;
+    }
+
+    public bool isOutOfRightBorder()
+    {
+        return mousePos.x > rightBorder;
+    }
 }

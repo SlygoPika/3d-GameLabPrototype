@@ -7,13 +7,13 @@ public class ShootSingularity : MonoBehaviour
     public float shootRadius;
 
     Orientation orientation;
-    Vector2 crossheir;
+    Vector2 crosshair;
     Vector2 center;
 
     private void Start()
     {
         orientation = GetComponent<Orientation>();
-        center = new Vector2(Screen.width, Screen.height);
+        center = new Vector2(Screen.width / 2, Screen.height / 2);
     }
 
     // Update is called once per frame
@@ -29,13 +29,44 @@ public class ShootSingularity : MonoBehaviour
         }
         if (orientation.isInShootingZone())
         {
-            crossheir = Input.mousePosition;
-
-            Debug.Log(crossheir);
+            crosshair = Input.mousePosition;
         } else
         {
-            
+            SetCrosshairWithinBorders();
         }
 
     }
+
+    void SetCrosshairWithinBorders()
+    {
+        if (orientation.isOutOfLeftBorder())
+        {
+            float yPos = (Input.mousePosition.y - center.y) *
+                ((orientation.getLeftBorder() - center.x) / (Input.mousePosition.x - center.x)) + center.y;
+
+            crosshair = new Vector2
+            {
+                x = orientation.getLeftBorder(),
+                y = yPos
+            };
+        } 
+        else
+        {
+            float yPos = (Input.mousePosition.y - center.y) *
+                ((orientation.getRightBorder() - center.x) / (Input.mousePosition.x - center.x)) + center.y;
+
+            crosshair = new Vector2
+            {
+                x = orientation.getRightBorder(),
+                y = yPos
+            };
+        }
+    }
+
+    public Vector2 GetCrosshair()
+    {
+        return crosshair;
+    }
+
+    public Vector2 GetCenter() { return center; }
 }
