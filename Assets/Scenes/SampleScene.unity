@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootRadius: 14
-  singularity: {fileID: 6350274207139907212, guid: 9c78f8161e661f1428b62d9ff40f5496, type: 3}
+  singularity: {fileID: 6443365627491522043, guid: a7a16fee6e3984ef296f41a532709716, type: 3}
   cam: {fileID: 963194227}
 --- !u!1 &963194225
 GameObject:
