@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.gravity = new Vector3(0.0f, Physics.gravity.y * gravityMultiplier, 0.0f);
+        Physics.gravity = new Vector3(0.0f, 9.81f * gravityMultiplier, 0.0f);
         myRigidbody = this.GetComponent<Rigidbody>();
         gravity = Physics.gravity.y;
 
